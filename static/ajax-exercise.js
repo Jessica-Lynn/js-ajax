@@ -3,6 +3,16 @@
 // PART 1: SHOW A FORTUNE
 
 function showFortune(evt) {
+  evt.preventDefault();
+
+  fetch('/fortune')
+  .then((response) => response.text())
+  // .then(console.log(response))
+  .then((serverData) => {
+    console.log(serverData);
+    document.querySelector('fortune-text').innerText =
+    serverData;
+  })
   // TODO: get the fortune and show it in the #fortune-text div
 }
 
